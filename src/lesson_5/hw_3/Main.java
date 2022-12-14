@@ -28,30 +28,26 @@ public class Main {
         cars.add(new Car(Model.BMW, 240, new Owner("yura", 34, 9), 12000, 2016));
         cars.add(new Car(Model.AUDI, 210, new Owner("yarik", 26, 4), 14000, 2014));
         cars.stream()
-
-
                 .map(Owner -> {
                     if (Owner.getOwner().getExp() < 5 && Owner.getOwner().getAge() > 25) {
                         Owner.getOwner().setExp(Owner.getOwner().getExp() + 1);
                     }
                     return Owner;
                 })
-                .peek(car -> car.setPower(car.getPower() / 100 * 110))
-                .forEach(System.out::println);
+                .peek(car -> car.setPower(car.getPower() / 100 * 110)).toList();
+        int totalPriceCars = cars.stream().reduce(0, (car, car2) -> car + car2.getPrice(), Integer::sum);
+        System.out.println(cars);
+        System.out.println("The total price of all cars: "+ totalPriceCars);
 
-//                .reduce((car1, car2) -> {
-//                    int result = car1.getPrice()+ car2.getPrice();
-//                    System.out.println(result);
-//                    return car1;
-//                });
+//                .forEach(System.out::println);
 
-
-
-
+//                .reduce((car,car1) -> {
+//            double v = car.getPower() + car1.getPower();
+//            System.out.println(result);
+//            return result;
 
 
 //        System.out.println(cars);
-
 
 
     }
