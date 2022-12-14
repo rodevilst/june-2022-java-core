@@ -39,15 +39,6 @@ public class Main {
         System.out.println(cars);
         System.out.println("The total price of all cars: "+ totalPriceCars);
 
-//                .forEach(System.out::println);
-
-//                .reduce((car,car1) -> {
-//            double v = car.getPower() + car1.getPower();
-//            System.out.println(result);
-//            return result;
-
-
-//        System.out.println(cars);
 
 
     }
